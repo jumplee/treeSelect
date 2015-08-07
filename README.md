@@ -41,12 +41,19 @@ data:ztree格式的数据源
 
 ##开发
 1.使用babel来进行编译 需要先安装[babel](https://babeljs.io/)
+
 2.执行bash
-```bash
+
+```
+
 babel treeSelect.js  --out-file dist/treeSelect.js --source-maps --watch
-``
+
+```
+
 3.watch.sh也可以实现监听
+```
     1.添加权限
      chmod +x watch.sh
     2.执行
     ./watch.sh
+``
