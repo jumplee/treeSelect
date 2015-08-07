@@ -1,0 +1,110 @@
+<!doctype html>
+<html lang="zh-cn">
+<head>
+    <meta charset="UTF-8">
+    <title>例子</title>
+    <link href="http://cdn.bootcss.com/bootswatch/3.3.5/paper/bootstrap.css" rel="stylesheet">
+    <link rel="stylesheet" href="lib/ztree/zTreeStyle.css"/>
+    <link rel="stylesheet" href="dist/treeSelect.css"/>
+    <script src="http://cdn.bootcss.com/jquery/1.11.3/jquery.js"></script>
+     <!--<script src="http://cdn.bootcss.com/jquery/2.1.4/jquery.min.js"></script>-->
+    <!--<script src="http://cdn.bootcss.com/jquery/1.7.2/jquery.min.js"></script>-->
+    <script src="lib/ztree/jquery.ztree.core-3.5.js"></script>
+    <script src="dist/treeSelect.js"></script>
+</head>
+<body>
+<div class="container">
+    <div class="row">
+        <div class="col-md-6">
+            <form action="#" >
+                <h3>表单</h3>
+                <div class="form-group">
+                    <label for="depart">部门</label>
+                    <div id="depart"></div>
+                </div>
+                <div class="form-group">
+                    <label for="sex">性别</label>
+                    <div id="sex"></div>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
+
+
+<script>
+
+
+    var zNodes =[
+        { name:"父节点1 - 展开", open:true,
+            children: [
+                { name:"父节点11 - 折叠",
+                    children: [
+                        { name:"叶子节点111",value:"22"},
+                        { name:"叶子节点112"},
+                        { name:"叶子节点113"},
+                        { name:"叶子节点114"}
+                    ]},
+                { name:"父节点12 - 折叠",
+                    children: [
+                        { name:"叶子节点121"},
+                        { name:"叶子节点122"},
+                        { name:"叶子节点123"},
+                        { name:"叶子节点124"}
+                    ]},
+                { name:"父节点13 - 没有子节点", isParent:true}
+            ]},
+        { name:"父节点2 - 折叠",
+            children: [
+                { name:"父节点21 - 展开", open:true,
+                    children: [
+                        { name:"叶子节点211"},
+                        { name:"叶子节点212"},
+                        { name:"叶子节点213"},
+                        { name:"叶子节点214"}
+                    ]},
+                { name:"父节点22 - 折叠",
+                    children: [
+                        { name:"叶子节点221"},
+                        { name:"叶子节点222"},
+                        { name:"叶子节点223"},
+                        { name:"叶子节点224"}
+                    ]},
+                { name:"父节点23 - 折叠",
+                    children: [
+                        { name:"叶子节点231"},
+                        { name:"叶子节点232"},
+                        { name:"叶子节点233"},
+                        { name:"叶子节点234"}
+                    ]}
+            ]},
+        { name:"父节点3 - 没有子节点", isParent:true}
+
+    ];
+    var sexNode=[
+        {
+            name:'男',
+            value:'1',
+            children:[
+                {
+                    name:'好基友'
+                }
+            ]
+        }  ,
+        {
+            name:'女',
+            value:'2'
+        }
+    ];
+    var sexInput=new TreeSelect({
+        element:'#sex',
+        data:sexNode
+    });
+var depart_input=new TreeSelect({
+    element:'#depart',
+    data:zNodes
+});
+
+</script>
+</body>
+</html>
