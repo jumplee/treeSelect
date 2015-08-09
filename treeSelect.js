@@ -5,6 +5,11 @@ class TreeSelect{
     }
     constructor(options){
         var self=this;
+
+        var defaultOptions={
+            valueKey:'id'
+        }
+        self.options=options=$.extend(defaultOptions,options);
         var uid=TreeSelect.getUniquId();
         var tpl=`
             <input type="text" class="form-control treeSelect-input "/>
@@ -60,7 +65,7 @@ class TreeSelect{
                 onClick:function(event, treeId, treeNode){
                     if(!treeNode.isParent){
                         self.input.val(treeNode.name);
-                        self.value=treeNode.value;
+                        self.value=treeNode[self.options.valueKey];
                         self.text=treeNode.name;
                         self.close();
                     }

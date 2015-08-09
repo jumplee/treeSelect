@@ -18,6 +18,11 @@ var TreeSelect = (function () {
         _classCallCheck(this, TreeSelect);
 
         var self = this;
+
+        var defaultOptions = {
+            valueKey: 'id'
+        };
+        self.options = options = $.extend(defaultOptions, options);
         var uid = TreeSelect.getUniquId();
         var tpl = '\n            <input type="text" class="form-control treeSelect-input "/>\n             <div class="ztree treeSelect-panel" id="treeSelect_panel_' + uid + '"></div>\n        ';
         var ele = $(options.element);
@@ -73,7 +78,7 @@ var TreeSelect = (function () {
                     onClick: function onClick(event, treeId, treeNode) {
                         if (!treeNode.isParent) {
                             self.input.val(treeNode.name);
-                            self.value = treeNode.value;
+                            self.value = treeNode[self.options.valueKey];
                             self.text = treeNode.name;
                             self.close();
                         }
