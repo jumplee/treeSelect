@@ -37,7 +37,7 @@ class TreeSelect{
                 self.close();
             }
 
-        })
+        });
         if(options.url){
             $.ajax({
                 type: options.type,
